@@ -12,6 +12,8 @@ class Program
         // int magic_number = int.Parse(Console.ReadLine());
         
         int guess;
+        int x = 0;
+
         do
         {    
             Console.Write("What is your guess? ");
@@ -30,6 +32,8 @@ class Program
             {
                 Console.WriteLine("Higher");
             }
+            x++;
         } while (guess != magic_number);
+            Console.WriteLine($"It took you {x} tries.");
     }
 }
