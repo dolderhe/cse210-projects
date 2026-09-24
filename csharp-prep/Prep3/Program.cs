@@ -5,18 +5,20 @@ class Program
     static void Main(string[] args)
     {
         
-        Random randomGenerator = new Random();
-        int magic_number = randomGenerator.Next(1, 100);
-        
+
         // Console.Write("What is the magic number? ");
         // int magic_number = int.Parse(Console.ReadLine());
         
         int guess;
+        string play_again;
+        do
+        {
+        Random randomGenerator = new Random();
+        int magic_number = randomGenerator.Next(1, 100);
         int x = 0;
-
         do
         {    
-            Console.Write("What is your guess? ");
+            Console.Write("\nWhat is your guess? ");
             string guess_str = Console.ReadLine();
             guess = int.Parse(guess_str);
 
@@ -35,5 +37,8 @@ class Program
             x++;
         } while (guess != magic_number);
             Console.WriteLine($"It took you {x} tries.");
+            Console.Write("Would you like to play again? ");            
+            play_again = Console.ReadLine();
+        } while (play_again == "yes");
     }
 }
