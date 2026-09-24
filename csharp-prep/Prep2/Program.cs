@@ -11,14 +11,14 @@ class Program
         gradeString = Console.ReadLine();
         int gradeInt = int.Parse(gradeString);
 
-        if (gradeInt % 10 >= 7 !&& gradeInt/10 > 10)
-        {
-            string gradeSign = "+";
-        }
-        else if (gradeInt % 10 < 3 !&& gradeInt/10 > 10)
-        {
+        // if (gradeInt % 10 >= 7 !&& gradeInt/10 > 10)
+        // {
+        //     string gradeSign = "+";
+        // }
+        // else if (gradeInt % 10 < 3 !&& gradeInt/10 > 10)
+        // {
             
-        }
+        // }
 
         if (gradeInt >= 90)
         {
