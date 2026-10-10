@@ -6,28 +6,29 @@ class Program
     {
         Menu myMenu = new Menu();
 
+        Journal myJournal = new Journal();
+
         int response = 0;
         
         while(response != 5)
         {
+            Console.WriteLine();
             response = myMenu.ProcessMenu();
             switch (response)
             {
                 case 1:
-                    // CreateJournalEntry()
-                    Console.WriteLine("Create");
+                    myJournal.CreateEntry();
                     break;
                 case 2:
-                    // DisplayJournal()
-                    Console.WriteLine("Display");
+                    myJournal.DisplayJournal();
                     break;
                 case 3:
-                    // ReadFromFile()
-                    Console.WriteLine("Save");
+                    myJournal.ReadFromFile("journal.txt");
+                    // Call ReadFromFile()
                     break;
                 case 4:
-                    // Call WriteToFile()
-                    Console.WriteLine("Write");
+                    myJournal.WriteToFile("journal.txt");
+                    // call WriteToFile
                     break;
             }
         }
