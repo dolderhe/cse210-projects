@@ -1,6 +1,9 @@
+using System.IO;
+
 class Journal
 {
     public List<JournalEntry> _entries = new List<JournalEntry>();
+    public List<string> used_prompts = new List<string>();
 
     
 
@@ -9,13 +12,16 @@ class Journal
         foreach(JournalEntry entry in _entries)
         {
             entry.DisplayJournalEntry();
+            Console.WriteLine();
         }
+        Console.Write("Press Enter After Reviewing Entries: ");
+        Console.ReadLine();
     }
 
     public void CreateEntry()
     {
         JournalEntry entry = new JournalEntry();
-        entry.CreateJournalEntry();
+        entry.CreateJournalEntry(used_prompts);
         _entries.Add(entry);
     }
 
@@ -23,6 +29,7 @@ class Journal
     {
     string[] lines = System.IO.File.ReadAllLines(filename);
     _entries.Clear();
+
     foreach (string line in lines)
       {
        
@@ -52,5 +59,17 @@ class Journal
                 outputFile.WriteLine(entry.CreateFileSystemString()); 
             }
         }
+    }
+
+    public void ClearFile(string filename)
+    {   
+        Console.Write("Are you sure you want to delete this file and subsequent journal entries? (y/n)\n> ");
+        string user_input = Console.ReadLine();
+        if (user_input.ToLower() == "y" || user_input.ToLower() == "yes")
+        {
+            _entries.Clear();
+            File.WriteAllText(filename, "");
+        }
+
     }
 }
