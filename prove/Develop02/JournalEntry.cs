@@ -12,16 +12,36 @@ class JournalEntry
         Console.WriteLine(_response);
     }
 
-    public void CreateJournalEntry()
+    public void CreateJournalEntry(List<string>used_prompts)
     {
+        Random random = new Random();
+        
         string [] prompts =
         {
-            "How Was your day",
-            "Talk about someone you met"
+            "How was your day?",
+            "Talk about someone you met:",
+            "Who was the most interesting person I interacted with today?",
+            "What was the best part of my day?",
+            "How did I see the hand of the Lord in my life today?",
+            "What was the strongest emotion I felt today?",
+            "If I had one thing I could do over today, what would it be?"
         };
+        
+        do
+        {
+
         _date = DateTime.Now.ToString();
-        _prompt = prompts[0];
-        Console.Write($"{_prompt}: ");
+        _prompt = prompts[random.Next(prompts.Length)];
+        
+        if (used_prompts.Count == prompts.Length)
+            {
+                used_prompts.Clear();
+            }
+             
+        } while (used_prompts.Contains(_prompt));
+        
+        used_prompts.Add(_prompt);
+        Console.Write($"{_prompt} ");
         _response = Console.ReadLine();
     }
     
