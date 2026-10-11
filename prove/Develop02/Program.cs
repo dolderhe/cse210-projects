@@ -7,12 +7,17 @@ class Program
         Menu myMenu = new Menu();
 
         Journal myJournal = new Journal();
-
+        
+        int counter = 0;
         int response = 0;
         
-        while(response != 5)
+        while(response != 6)
         {
-            Console.WriteLine();
+            if (counter > 0)
+            {
+                Console.WriteLine();
+            }
+
             response = myMenu.ProcessMenu();
             switch (response)
             {
@@ -23,14 +28,24 @@ class Program
                     myJournal.DisplayJournal();
                     break;
                 case 3:
-                    myJournal.ReadFromFile("journal.txt");
+                    Console.Write("What file holds your journal: (filename)\n> ");
+                    myJournal.ReadFromFile(Console.ReadLine());
                     // Call ReadFromFile()
                     break;
                 case 4:
-                    myJournal.WriteToFile("journal.txt");
+                    Console.Write("Where would you like to save to: (filename)\n> ");
+                    myJournal.WriteToFile(Console.ReadLine());
                     // call WriteToFile
                     break;
+                case 5:
+                    Console.Write("Which file would you like to delete: (filename)\n> ");
+                    myJournal.ClearFile(Console.ReadLine());
+                    break;
+            
             }
+
+            counter++;
         }
+        myJournal.used_prompts.Clear();
     }
 }
