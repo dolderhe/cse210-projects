@@ -2,21 +2,26 @@ class Scripture
 {
     private List<Word> _words;
 
+    private ScriptureReference _reference;
+
     // TODO - add scripture reference
 
     public Scripture(string bookName, int chapter, int verse, string text)
     {
         _words = ConvertToWordList(text);
+        _reference = new ScriptureReference(bookName, chapter, verse);
     }
     public Scripture(string bookName, int chapter, int startVerse, int endVerse, string text)
     {
-        // todo
+        _words = ConvertToWordList(text);
+        _reference = new ScriptureReference(bookName, chapter, startVerse, endVerse);
     }
 // TODO add constructor for ScriptureReference
-//  public Scripture(ScriptureReference)
-//  {
-
-//  }
+    public Scripture(ScriptureReference reference, string text)
+    {
+        _reference = reference;
+        _words = ConvertToWordList(text);
+    }
 
 /*
 * ConvertToWordList() - this method will receive a string parameter
@@ -32,7 +37,7 @@ class Scripture
             word.Display();
         }
     }
-    
+
     private List<Word> ConvertToWordList(string text)
     {
         List<Word> tempWordList = new List<Word>();
