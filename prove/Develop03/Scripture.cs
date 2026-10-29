@@ -53,4 +53,51 @@ class Scripture
         return tempWordList;
     }
 
+    public int HideWords(int index, int i)
+        {
+            if (!_words[index].isHidden())
+                {
+                _words[index].Hide();
+                return i;
+                }
+            else
+                {
+                return i - 1;
+                }
+            }
+    public void HideSomeWords()
+    {
+        // TODO add code to hide multiple words
+        Random random = new Random();
+
+        int listLength = _words.Count;
+
+        Console.Write("");
+        string input = Console.ReadLine();
+        int visibleWords = 0;
+
+        foreach (Word word in _words)
+        {
+            if (!word.isHidden())
+            {
+                visibleWords++;
+                
+            }
+        }
+        
+        if (visibleWords > 6)
+        {
+            for(int i = 1; i <= 3 ; i +=1){
+            int index = random.Next(0, listLength);
+            i = HideWords(index, i);
+            }
+        }
+        else
+        {
+            int i = 0;
+            int index = random.Next(0, listLength);
+            HideWords(index, i);
+        }
+    }
+
 }
