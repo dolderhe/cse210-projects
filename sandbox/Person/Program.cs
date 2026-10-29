@@ -10,6 +10,9 @@
         Doctor myDoctor = new Doctor("bob", "payne", 45, 290.0, "syringe");
 
         Console.WriteLine(myDoctor.GetDoctorInfo());
-        
+
+
+        Police myPolice = new Police("Jeremy", "Warner", 34, 180, "Baton");
+        Console.WriteLine(myPolice.GetPoliceInfo());
     }
 }
