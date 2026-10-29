@@ -23,7 +23,19 @@
 
         foreach(Person person in myPeople)
         {
-            Console.WriteLine(person.GetPersonInformation());
+            if(person is Doctor doctor)
+            {
+                Console.WriteLine(doctor.GetDoctorInfo());
+            }
+            else if(person is Police police)
+            {
+                Console.WriteLine(police.GetPoliceInfo());
+            }
+            else
+            {
+                Console.WriteLine(person.GetPersonInformation());    
+            }
+            
         }
 
     }
