@@ -14,5 +14,17 @@
 
         Police myPolice = new Police("Jeremy", "Warner", 34, 180, "Baton");
         Console.WriteLine(myPolice.GetPoliceInfo());
+
+        List<Person> myPeople = new List<Person>();
+
+        myPeople.Add(myPerson);
+        myPeople.Add(myDoctor);
+        myPeople.Add(myPolice);
+
+        foreach(Person person in myPeople)
+        {
+            Console.WriteLine(person.GetPersonInformation());
+        }
+
     }
 }
