@@ -36,7 +36,7 @@ class ScriptureReference
 
     public void DisplayReference()
     {
-        Console.WriteLine(GetScriptureReference());
+        Console.Write($"{GetScriptureReference()}: ");
     }
     
 

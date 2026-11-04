@@ -4,6 +4,8 @@ class Scripture
 
     private ScriptureReference _reference;
 
+    private Random _random = new Random();
+
     // TODO - add scripture reference
 
     public Scripture(string bookName, int chapter, int verse, string text)
@@ -67,37 +69,39 @@ class Scripture
             }
     public void HideSomeWords()
     {
-        // TODO add code to hide multiple words
-        Random random = new Random();
-
-        int listLength = _words.Count;
-
-        Console.Write("");
-        string input = Console.ReadLine();
-        int visibleWords = 0;
+        // Choose from visible words so every turn hides new words.
+        List<Word> visibleWords = new List<Word>();
 
         foreach (Word word in _words)
         {
             if (!word.isHidden())
             {
-                visibleWords++;
-                
+                visibleWords.Add(word);
             }
         }
         
-        if (visibleWords > 6)
+        // Hide three per turn, or the smaller number remaining.
+        int numberToHide = Math.Min(3, visibleWords.Count);
+
+        for (int i = 0; i < numberToHide; i++)
         {
-            for(int i = 1; i <= 3 ; i +=1){
-            int index = random.Next(0, listLength);
-            i = HideWords(index, i);
+            int index = _random.Next(visibleWords.Count);
+            visibleWords[index].Hide();
+            visibleWords.RemoveAt(index);
+        }
+    }
+        public bool IsCompletelyHidden()
+    {
+        foreach (Word word in _words)
+        {
+            if (!word.isHidden())
+            {
+                return false;
             }
         }
-        else
-        {
-            int i = 0;
-            int index = random.Next(0, listLength);
-            HideWords(index, i);
-        }
+
+        return true;
     }
 
 }
+
