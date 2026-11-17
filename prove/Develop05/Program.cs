@@ -6,5 +6,8 @@ class Program
     {
         BaseGoal myBaseGoal = new BaseGoal();
         Console.WriteLine(myBaseGoal.GetConsoleString());
+        myBaseGoal.MarkComplete();
+        Console.WriteLine(myBaseGoal.GetConsoleString());
+        
     }
 }
