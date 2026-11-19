@@ -45,6 +45,11 @@ abstract class BaseGoal
         _points = int.Parse(Console.ReadLine());
     }
 
+    public int GetPoint()
+    {
+        return _points;
+    }
+
     public virtual string GetConsoleString()
     {
         X = " ";
