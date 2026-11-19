@@ -1,16 +1,28 @@
-class BaseGoal
+abstract class BaseGoal
 {
     private string _name;
-    private string _completionStatus = " ";
+    private bool _completionStatus;
     private string _description;
     private int _points;
+    private string _goalType;
+    private string X;
 
-
-    public BaseGoal()
+    public BaseGoal(string name, string description, int point, bool completionStatus, string goalType)
+    {
+        _name = name;
+        _description = description;
+        _points = point;
+        _completionStatus = completionStatus;
+        _goalType = goalType;
+        
+    }
+    public BaseGoal(string goalType)
     {
         SetName();
         SetDescription();
         SetPoint();
+        _completionStatus = false;
+        _goalType = goalType;
     }
 
 
@@ -35,13 +47,21 @@ class BaseGoal
 
     public virtual string GetConsoleString()
     {
-        return $"[{_completionStatus}] Goal Name: {_name}\nDescription: {_description}\nPoints: {_points}\n";
+        X = " ";
+        
+        if (_completionStatus){
+            X = "X";
+        }
+        
+        return $"[{X}] Goal Name: {_name}\nDescription: {_description}\nPoints: {_points}\n";
     }
 
-    public string MarkComplete()
+    public int MarkComplete()
     {
-        _completionStatus = "X";
-        return _completionStatus;
+        _completionStatus = true;
+        return _points;
     }
+
+    public abstract int RecordEvent();
 
 }
