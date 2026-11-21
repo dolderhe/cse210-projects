@@ -20,7 +20,7 @@ abstract class BaseGoal
     {
         SetName();
         SetDescription();
-        SetPoint();
+        SetPoints();
         _completionStatus = false;
         _goalType = goalType;
     }
@@ -39,14 +39,20 @@ abstract class BaseGoal
         _description = Console.ReadLine();
     }
 
-    private void SetPoint()
+    private void SetPoints()
     {
         Console.Write($"What are the points for {_name} goal: ");
         _points = int.Parse(Console.ReadLine());
     }
 
-    public int GetPoint()
+    protected int GetPoints()
     {
+        return _points;
+    }
+
+    protected int MarkComplete()
+    {
+        _completionStatus = true;
         return _points;
     }
 
@@ -61,10 +67,9 @@ abstract class BaseGoal
         return $"[{X}] Goal Name: {_name}\nDescription: {_description}\nPoints: {_points}\n";
     }
 
-    public int MarkComplete()
+    public virtual string GetFileSystemString()
     {
-        _completionStatus = true;
-        return _points;
+        return "hello";
     }
 
     public abstract int RecordEvent();

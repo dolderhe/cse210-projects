@@ -56,11 +56,11 @@ class Program
                     break;
                 case 4:
                     Console.Write("Load Goals");
-                    Console.ReadLine();         
+                    Console.ReadLine();
                     break;
                 case 5:
                     Console.Write("Record Event");
-                    Console.ReadLine();            
+                    Console.ReadLine();
                     break;
             }
         }
