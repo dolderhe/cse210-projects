@@ -11,15 +11,18 @@ class Breathing : Activity
     {
         // call StartActivity() method
         
-
-        Console.WriteLine("This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.");
+        GetName("Breathing Activity");
+        GetDescription("This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.");
         StartActivity();
+        Console.Clear();
         // DateTime endTime = DateTime.Now.AddSeconds(20);  // delete later 
         // while (DateTime.Now < endTime)
         while(! HasTimerExpired())  // Add when code is ready
         {
             RunCountDownMessage("Breath in", 4);
+            Console.WriteLine();
             RunCountDownMessage("Breath Out", 6);
+            Console.WriteLine("\n");
         }
 
 
