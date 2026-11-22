@@ -8,7 +8,6 @@ class Menu
 
     public void DisplayMenu()
     {
-        Console.Clear();
         Console.WriteLine("Menu Options:\n  1. Create New Goal\n  2. List Goals\n  3. Save Goals\n  4. Load Goals\n  5. Record Event\n  6. Quit");
 
     }

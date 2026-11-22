@@ -10,9 +10,13 @@ class Program
 
         Goals myGoals = new Goals();
         Menu myMenu = new Menu();
+        Console.Clear();
 
         while (choice != 6)
         {        
+            Console.WriteLine();
+            myGoals.DisplayScore();
+            Console.WriteLine();
             myMenu.DisplayMenu();
             do
             {
@@ -24,6 +28,7 @@ class Program
             {
                 case 1:
                     myMenu.DisplayGoalMenu();
+                    
                     do
                     {
                     Console.Write("Which type of goal would you like to create? ");
@@ -34,33 +39,32 @@ class Program
                         case 1:
                             Console.Clear();
                             SimpleGoal simpleGoal = new SimpleGoal();
-
+                            myGoals.AddGoal(simpleGoal);
                             break;
                         case 2:
                             Console.Clear();
                             EternalGoal eternalGoal = new EternalGoal();
+                            myGoals.AddGoal(eternalGoal);
                             break;
                         case 3:
                             Console.Clear();
                             ChecklistGoal checklistGoal = new ChecklistGoal();
+                            myGoals.AddGoal(checklistGoal);
                             break;
                     }
                     break;
                 case 2:
-                    Console.Write("List Goals");
-                    Console.ReadLine();
+                    myGoals.DisplayGoals();
                     break;
                 case 3:
-                    Console.Write("Save Goals");
-                    Console.ReadLine();
+                    myGoals.SaveGoals();
                     break;
                 case 4:
-                    Console.Write("Load Goals");
-                    Console.ReadLine();
+                    myGoals.LoadGoals();
                     break;
                 case 5:
                     Console.Write("Record Event");
-                    Console.ReadLine();
+                    myGoals.RecordEvent();
                     break;
             }
         }

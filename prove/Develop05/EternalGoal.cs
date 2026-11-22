@@ -9,7 +9,8 @@ class EternalGoal : BaseGoal
 
     public override int RecordEvent()
     {
-        return 0;
+        
+        return GetPoints();
     }
 
 }

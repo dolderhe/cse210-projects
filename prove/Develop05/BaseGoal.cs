@@ -1,4 +1,4 @@
-abstract class BaseGoal
+class BaseGoal
 {
     private string _name;
     private bool _completionStatus;
@@ -39,6 +39,15 @@ abstract class BaseGoal
         _description = Console.ReadLine();
     }
 
+    public string GetDescription()
+    {
+        return _description;
+    }
+
+    public string GetName()
+    {
+        return _name;
+    }
     private void SetPoints()
     {
         Console.Write($"What are the points for {_name} goal: ");
@@ -50,12 +59,21 @@ abstract class BaseGoal
         return _points;
     }
 
+    protected int AddPoints(int x, int y = 0)
+    {
+        return x + y;
+    }
+
     protected int MarkComplete()
     {
         _completionStatus = true;
         return _points;
     }
 
+    public bool GetCompletionStatus()
+    {
+        return _completionStatus;
+    }
     public virtual string GetConsoleString()
     {
         X = " ";
@@ -69,9 +87,17 @@ abstract class BaseGoal
 
     public virtual string GetFileSystemString()
     {
-        return "hello";
+        return $"{_goalType},{_name},{_description},{_points},{_completionStatus}";
     }
 
-    public abstract int RecordEvent();
+    public string GetGoalType()
+    {
+        return _goalType;
+    }
+
+    public virtual int RecordEvent()
+    {
+        return 1;
+    }
 
 }
