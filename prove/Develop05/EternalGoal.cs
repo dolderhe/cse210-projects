@@ -1,7 +1,9 @@
 class EternalGoal : BaseGoal
 {
-    public EternalGoal(string name, string description, int points, bool completion, string goalType) : base(name, description, points, completion, goalType)
-    {  
+    private int _timesCompleted;
+    public EternalGoal(string name, string description, int points, bool completion, string goalType, int timesCompleted) : base(name, description, points, completion, goalType)
+    {
+        _timesCompleted = timesCompleted;
     }
     public EternalGoal(): base("EternalGoal")
     {  
@@ -9,8 +11,15 @@ class EternalGoal : BaseGoal
 
     public override int RecordEvent()
     {
+        Console.Write("How many times did you complete this goal? ");
+        _timesCompleted += int.Parse(Console.ReadLine());
         
-        return GetPoints();
+        return GetPoints() * _timesCompleted;
+    }
+
+    public override string GetFileSystemString()
+    {
+        return $"{base.GetFileSystemString()},{_timesCompleted}";
     }
 
 }

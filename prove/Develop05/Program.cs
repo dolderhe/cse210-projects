@@ -55,17 +55,21 @@ class Program
                     break;
                 case 2:
                     myGoals.DisplayGoals();
+                    Console.Write("Press Enter to Continue: ");
+                    Console.ReadLine();
                     break;
                 case 3:
-                    myGoals.SaveGoals();
+                    myGoals.DisplayNames();
+                    myGoals.RecordEvent();
                     break;
                 case 4:
                     myGoals.LoadGoals();
                     break;
                 case 5:
-                    Console.Write("Record Event");
-                    myGoals.RecordEvent();
+                    myGoals.SaveGoals();
+                    choice = 6;
                     break;
+
             }
         }
     }

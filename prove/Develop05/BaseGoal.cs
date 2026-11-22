@@ -67,6 +67,7 @@ class BaseGoal
     protected int MarkComplete()
     {
         _completionStatus = true;
+        
         return _points;
     }
 
