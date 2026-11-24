@@ -19,7 +19,7 @@ class Reflecting : Activity
     ];
     private Random random = new Random();
     /*Create Constructor*/
-    public Reflecting() : base()
+    public Reflecting() : base("Reflecting Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.")
     {
         
     }
@@ -27,18 +27,14 @@ class Reflecting : Activity
     public void RunActivity()
     {
 
-        GetName("Reflecting Activity");
-        GetDescription("This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.");
         StartActivity();
+
+        DisplaySpinnerMessage(_prompts[random.Next(_prompts.Count())], 5, GetAnimation("spinner"));
         
-        Console.Write(_prompts[random.Next(_prompts.Count())]);
-        RunCountDownMessage("You may begin in: ", 5);
-            
         while(! HasTimerExpired())  // Add when code is ready
         {
-            
-            Console.Write(_followUps[random.Next(_followUps.Count())]);
-            Console.ReadLine();
+        
+        DisplaySpinnerMessage(_followUps[random.Next(_followUps.Count())], 3, GetAnimation("timer"));
             
         }
 

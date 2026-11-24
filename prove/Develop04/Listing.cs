@@ -11,7 +11,7 @@ class Listing : Activity
 
     int counter;
     Random random = new Random();
-    public Listing() : base()
+    public Listing() : base("Listing Activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.")
     {
         
     }
@@ -21,8 +21,6 @@ class Listing : Activity
     {
         counter = 0;
 
-        GetName("Listing Activity");
-        GetDescription("This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.");
         StartActivity();
         
         Console.WriteLine(_prompts[random.Next(_prompts.Count())]);
@@ -33,8 +31,11 @@ class Listing : Activity
         while(!HasTimerExpired())
         {
             Console.Write(">");
-            Console.ReadLine();
-            counter ++;
+            string response = Console.ReadLine();
+            if (!string.IsNullOrWhiteSpace(response) && !HasTimerExpired())
+            {
+                counter ++;
+            }
         }
 
         Console.WriteLine($"You listed {counter} items!");    
