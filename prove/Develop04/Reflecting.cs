@@ -34,7 +34,7 @@ class Reflecting : Activity
         while(! HasTimerExpired())  // Add when code is ready
         {
         
-        DisplaySpinnerMessage(_followUps[random.Next(_followUps.Count())], 3, GetAnimation("timer"));
+        DisplaySpinnerMessage(_followUps[random.Next(_followUps.Count())], 8, GetAnimation("timer"));
             
         }
 
