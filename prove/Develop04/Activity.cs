@@ -26,7 +26,6 @@ class Activity
         Console.WriteLine($"\n{_activityDescription}\n");
         ObtainDuration();
         RunCountDownMessage("Get Ready", 5);
-        StartTimer();
     }
 
     protected string[] GetAnimation(string animationName)
@@ -71,7 +70,7 @@ class Activity
             if (i == 0)
             {
                 Console.Write($"\r{message}...   \r");
-                Thread.Sleep(250);
+                Thread.Sleep(50);
             }
             else
             {

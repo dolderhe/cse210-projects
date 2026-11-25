@@ -2,7 +2,7 @@ class Breathing : Activity
 {
     /*Create Constructor*/
     /* TODO Breathing Timer (while loop (timer < timer)) */
-    public Breathing(): base("Breathing Activity", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.")
+    public Breathing(): base("Breathing Activity", "This activity will help you relax by walking your through breathing in and out slowly. \nClear your mind and focus on your breathing.")
     {
         
     }
@@ -12,6 +12,7 @@ class Breathing : Activity
         // call StartActivity() method
         
         StartActivity();
+        StartTimer();
         Console.Clear();
         // DateTime endTime = DateTime.Now.AddSeconds(20);  // delete later 
         // while (DateTime.Now < endTime)
